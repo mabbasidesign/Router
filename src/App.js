@@ -21,7 +21,10 @@ class App extends Component {
             />
           <Route path="/posts/:year?/:month?" component={Posts} />
           <Route path="/admin" component={Dashboard} />
-          <Route path="/" component={Home} />
+          <Redirect from="/messages" to="/posts" />
+          <Route path="/not-found" component={NotFound} />
+          <Route path="/" exact component={Home} />
+          <Redirect to="/not-found" />
         </Switch> 
       </div>
     );
